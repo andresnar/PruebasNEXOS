@@ -1,0 +1,114 @@
+﻿@model ApiRestFront.Models.Entities.Autor
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_Layaut_New.cshtml";
+}
+
+<h2>Administracion de Autores</h2>
+
+<div class="card ">
+    <div class="card-header ">
+        <h4 class="card-title">
+            Escoge tu Opción<br />
+             <small class="description"><a href="/Home/Index" class="btn btn-primary btn-sm">Inicio</a></small> 
+        </h4>
+    </div>
+    <div class="card-body ">
+        <ul class="nav nav-pills nav-pills-warning" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                    Buscar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                    Insertar
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content tab-space">
+            <div class="tab-pane active" id="link1">
+                <form method="post" action="Buscar">
+                    <div class="form-group">
+                        <label for="nombre" class="bmd-label-floating">NOMBRE</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechanacimiento" class="bmd-label-floating">fechanacimiento</label>
+                        <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento">
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad" class="bmd-label-floating">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" name="ciudad">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="bmd-label-floating">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <input type="submit" id="boton1" class="btn btn-reddit" value="Buscar" />
+                </form>
+            </div>
+            <div class="tab-pane" id="link2">
+                <form method="post" action="Insertar">
+                    <div class="form-group">
+                        <label for="nombre" class="bmd-label-floating">NOMBRE</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechanacimiento" class="bmd-label-floating">fechanacimiento</label>
+                        <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad" class="bmd-label-floating">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="bmd-label-floating">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <input type="submit" id="boton2" class="btn btn-reddit" value="Insertar" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+<script type="text/javascript">
+
+    function borrar(id) {
+        if (id == 1) {
+            var nombre = document.getElemntById("nombre").value;
+            var fechanacimiento = document.getElemntById("fechanacimiento").value;
+            var ciudad = document.getElementById("ciudad").value;
+            var email = document.getElementById("email").value;
+            var url = @Html.Raw(@Url.Action("Buscar"));
+            $.ajax({
+                type: "GET",
+                url: direc,
+                data: {
+                    nombre: nombre,
+                    fechanacimiento: fechanacimiento,
+                    ciudad: ciudad,
+                    email:email
+                },
+                success: function (data) {
+                    console.log("Data: ", data);
+                    if (data = "OK") {
+                        window.location.href = "/Autor/Index";
+                    }
+                },
+                error: function (data) {
+                    if (data) {
+                        alertify.error(data);
+                    }
+                }
+            });
+
+        }
+    }
+</script>
+
+}

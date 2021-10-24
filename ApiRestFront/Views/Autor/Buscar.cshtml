@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ApiRestFront.Models.Entities.Autor>
+
+@{
+    ViewBag.Title = "Buscar";
+    Layout = "../Shared/_Layaut_New.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header card-header-icon card-header-warning">
+        <div class="card-icon">
+            <i class="material-icons">assignment</i>
+        </div>
+        <h4 class="card-title ">Listado de Autores</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="text-primary">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.fechanacimiento)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ciudad)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fechanacimiento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ciudad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br />
+        <a href="/Autor/Index" class="btn btn-reddit">Regresar</a>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model ApiRestFront.Models.Entities.Libro
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_Layaut_New.cshtml";
+}
+
+<h2>Administracion de Libros</h2>
+
+<div class="card ">
+    <div class="card-header ">
+        <h4 class="card-title">
+            Escoge tu Opción <br />
+            <small class="description"><a href="/Home/Index" class="btn btn-primary btn-sm">Inicio</a></small>
+        </h4>
+    </div>
+    <div class="card-body ">
+        <ul class="nav nav-pills nav-pills-warning" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                    Buscar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                    Insertar
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content tab-space">
+            <div class="tab-pane active" id="link1">
+                <form method="post" action="Buscar">
+                    <div class="form-group">
+                        <label for="titulo" class="bmd-label-floating">Título</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="anno" class="bmd-label-floating">Año</label>
+                        <input type="number" class="form-control" id="anno" name="anno">
+                    </div>
+                    <div class="form-group">
+                        <label for="genero" class="bmd-label-floating">Genero</label>
+                        <input type="text" class="form-control" id="genero" name="genero">
+                    </div>
+                    <div class="form-group">
+                        <label for="paginas" class="bmd-label-floating">Páginas</label>
+                        <input type="number" class="form-control" id="paginas" name="paginas">
+                    </div>
+                    <div class="form-group">
+                        <label for="autor" class="bmd-label-floating">Autor</label>
+                        <input type="text" class="form-control" id="autor" name="autor">
+                    </div>
+                    <input type="submit" id="boton1" class="btn btn-reddit" value="Buscar" />
+                </form>
+            </div>
+            <div class="tab-pane" id="link2">
+                <form method="post" action="Insertar">
+                    <div class="form-group">
+                        <label for="titulo" class="bmd-label-floating">TITULO</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="anno" class="bmd-label-floating">Año</label>
+                        <input type="number" class="form-control" id="anno" name="anno">
+                    </div>
+                    <div class="form-group">
+                        <label for="genero" class="bmd-label-floating">Genero</label>
+                        <input type="text" class="form-control" id="genero" name="genero">
+                    </div>
+                    <div class="form-group">
+                        <label for="paginas" class="bmd-label-floating">Páginas</label>
+                        <input type="number" class="form-control" id="paginas" name="paginas">
+                    </div>
+                    <div class="form-group">
+                        <label for="autor" class="bmd-label-floating">Autor</label>
+                        <input type="text" class="form-control" id="autor" name="autor">
+                    </div>
+                    <input type="submit" id="boton2" class="btn btn-reddit" value="Insertar" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+}
